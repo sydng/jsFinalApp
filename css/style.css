@@ -2,22 +2,25 @@
     position: absolute;
     right: 0px;
     left: 0px;
-    top: 100px;
+    top: 60px;
     height: 100%;
 }
 
 .header {
-  background-color: white;
+  background-color: black;
   color: #fff;
   position: absolute;
   left: 0px;
   right: 0px;
   top: 0px;
-  z-index: 10000000;
   height: 100px;
 }
 
 .model {
   position: fixed;
-  padding: 10px
+  padding: 5px;
+}
+
+.btn {
+  position: relative;
 }
