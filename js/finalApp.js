@@ -11,6 +11,7 @@ var Stamen_TonerLite = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fast
   ext: 'png'
 }).addTo(map);
 
+
 //CREATE MODAL
 $(document).ready(function(){
   $('#sidebar').hide();
