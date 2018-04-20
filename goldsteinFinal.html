@@ -46,22 +46,36 @@
         </div>
       </div>
       <nav class="navbar navbar-dark bg-dark">
-        <span class="glyphicons glyphicons-flood">ICON</span>
+        <span class="glyphicons glyphicons-flood"></span>
         <div>
-          <button class="btn btn-md btn-outline-secondary" type="button">About</button>
-          <button type="button" class="btn btn-md btn-outline-secondary" data-toggle="dropdown"> Explore
-            <div class="dropdown-menu" id="dropdown">
-              <a class="dropdown-item" href="#">Flood Inundation</a>
-              <a class="dropdown-item" href="#">Landcover</a>
-              <a class="dropdown-item" href="#">Development Phases</a>
-            </div>
-          </button>
+          <button class="btn btn-md btn-outline-secondary" id="aboutButton" type="button">About</button>
           <button class="btn btn-md btn-outline-secondary" id="resourceButton" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             Resources
           </button>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Explore
+          </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" id="floodInund" href="#">Flood Inundation</button>
+              <button class="dropdown-item" id="landcover" href="#">Landcover</button>
+              <button class="dropdown-item" id="devPhase" href="#">Development Phases</button>
+            </div>
         </div>
       </nav>
-      <div class="sidebar" id="sidebar"></div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+      <button type="button" id="closeIcon2" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="about">
+      <button type="button" id="closeIcon" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <p>Reminder of main things about the application in case the user forgot or never read the modal</p>
     </div>
 
     <!-- Map -->
