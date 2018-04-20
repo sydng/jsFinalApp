@@ -15,11 +15,20 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title">Understanding Flood Prevention: <br>A Look into Harvey</h3>
+            <h3 class="modal-title">Understanding Flood Inundation:<br>A Look into Harvey</h3>
           </div>
           <div class="modal-body">
             <h5>How to Use</h5>
-            <p>Modal body text goes here.</p>
+            <p>Use the tabs and dropdown menu at the top of the page to explore features related
+               to flood inundation in the Woodlands, Texas including:</p>
+               <ul>
+                 <li>Showing the hotspots of flood inundation</li>
+                 <li>Landcover in the area</li>
+                 <li>And, something else</li>
+               </ul>
+            <p>The data used in this application was created and used for a study looking at the Woodlands
+               three development phases and how each phase performed during Hurricane Harvey. More information
+               on this project and the data can be found under the About tab on the navigational bar.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
@@ -29,18 +38,31 @@
     </div>
 
     <!-- Dashboard -->
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Icon Here</a>
-      <form class="form-inline">
-        <button class="btn btn-sm btn-outline-secondary" type="button">Land Cover</button>
-      </form>
-      <form class="form-inline">
-        <button class="btn btn-sm btn-outline-secondary" type="button">Flood Inundation</button>
-      </form>
-      <span class="navbar-text">
-        Something I'm trying out
-      </span>
-    </nav>
+    <div class="pos-f-t">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h4 class="text-white">Resources</h4>
+          <span class="text-muted">Talk about the McHarg Center and provide a link out.</span>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <span class="glyphicons glyphicons-flood">ICON</span>
+        <div>
+          <button class="btn btn-md btn-outline-secondary" type="button">About</button>
+          <button type="button" class="btn btn-md btn-outline-secondary" data-toggle="dropdown"> Explore
+            <div class="dropdown-menu" id="dropdown">
+              <a class="dropdown-item" href="#">Flood Inundation</a>
+              <a class="dropdown-item" href="#">Landcover</a>
+              <a class="dropdown-item" href="#">Development Phases</a>
+            </div>
+          </button>
+          <button class="btn btn-md btn-outline-secondary" id="resourceButton" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            Resources
+          </button>
+        </div>
+      </nav>
+      <div class="sidebar" id="sidebar"></div>
+    </div>
 
     <!-- Map -->
     <div id="map" class="map"></div>

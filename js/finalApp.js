@@ -14,4 +14,13 @@ var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{
 //CREATE MODAL
 $(document).ready(function(){
     $('#myModal').modal('show');
+    $('#sidebar').hide();
+
+    $('#dropdown').change(function() {
+        if ($('#dropdown').text() == "Landcover") {
+          console.log("Selected");
+        } else {
+          console.log("Not selected");
+        }
+      });
 });

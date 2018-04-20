@@ -2,25 +2,42 @@
     position: absolute;
     right: 0px;
     left: 0px;
-    top: 60px;
+    top: auto;
     height: 100%;
+    z-index: 7;
 }
 
-.header {
-  background-color: black;
-  color: #fff;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  height: 100px;
+nav div {
+   display: inline-block;
+   position: absolute;
+   padding-right: 30px;
+   left: 110px;
 }
 
-.model {
-  position: fixed;
-  padding: 5px;
+nav {
+  height: 75px;
 }
 
-.btn {
+.sidebar {
+    position: absolute;
+    left: 0px;
+    width: 250px;
+    top: 200px;
+    bottom: 100px;
+    padding: 20px;
+    font-size: 16px;
+    background-color: white;
+    z-index: 10000;
+}
+
+.resourcePage {
+  opacity: 0.85;
+  background-color: white;
+  top: 150px;
+  height: 600px;
+  width: 600px;
+  z-index: 8500;
+  margin: 0 auto;
   position: relative;
+  padding: 20px;
 }
