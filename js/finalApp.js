@@ -1,5 +1,5 @@
 //MAP SETUP
-var map = L.map('map', {
+/*var map = L.map('map', {
   center: [30.173658, -95.489521],
   zoom: 12
 });
@@ -9,8 +9,37 @@ var Stamen_TonerLite = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fast
   minZoom: 0,
   maxZoom: 20,
   ext: 'png'
-}).addTo(map);
+}).addTo(map);*/
 
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: {
+        "version": 8,
+        "sources": {
+            "simple-tiles": {
+                "type": "raster",
+                "tiles": [
+                    "http://a.tile.stamen.com/toner/{z}/{x}/{y}.png",
+                    "http://b.tile.stamen.com/toner/{z}/{x}/{y}.png",
+                    "http://c.tile.stamen.com/toner/{z}/{x}/{y}.png",
+                    "http://d.tile.stamen.com/toner/{z}/{x}/{y}.png"
+                ],
+                "tileSize": 256
+            }
+        },
+        "layers": [{
+            "id": "simple-tiles",
+            "type": "raster",
+            "source": "simple-tiles",
+            "minzoom": 0,
+            "maxzoom": 19
+        }]
+    },
+    zoom: 11,
+    center: [-95.523752,30.177220]
+});
+
+map.addControl(new mapboxgl.NavigationControl());
 
 //CREATE MODAL
 $(document).ready(function(){
@@ -18,8 +47,47 @@ $(document).ready(function(){
   $('#about').hide();
   $('#myModal').modal('show');
 
-  $('#landcover').on('click', function() {
+  $('#floodInund').on('click', function() {
     $('#sidebar').show();
+    map.addLayer({
+        "id": "woodlands",
+        "type": "heatmap",
+        "source": {
+          "type": "vector",
+          "tiles": ["https://s3.us-east-2.amazonaws.com/jswoods/{z}/{x}/{y}.pbf"],
+          "minzoom": 0,
+          "maxzoom": 19
+        },
+        "source-layer": "WoodlandsPoints",
+        "paint": {
+          "heatmap-weight": [
+              "interpolate",
+              ["linear"],
+              ["get", "Inundation"],
+              0, 0,
+              9, 1
+          ],
+          "heatmap-intensity": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            0, 1,
+            3, 3
+          ],
+          "heatmap-color": [
+              "interpolate",
+              ["linear"],
+              ["heatmap-density"],
+              0, "rgba(33,102,172,0)",
+              0.2, "rgb(103,169,207)",
+              0.4, "rgb(209,229,240)",
+              0.6, "rgb(253,219,199)",
+              0.8, "rgb(239,138,98)",
+              1, "rgb(178,24,43)"
+          ],
+          'heatmap-opacity': 0.8
+        }
+      });
   });
 
   $('#aboutButton').on('click', function() {
