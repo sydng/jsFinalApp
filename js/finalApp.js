@@ -1,16 +1,4 @@
 //MAP SETUP
-/*var map = L.map('map', {
-  center: [30.173658, -95.489521],
-  zoom: 12
-});
-var Stamen_TonerLite = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
-	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-	subdomains: 'abcd',
-  minZoom: 0,
-  maxZoom: 20,
-  ext: 'png'
-}).addTo(map);*/
-
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3lkbmciLCJhIjoiY2pmY3JuM2x3M3poYjJ3bzFwZmV4ZHdwdCJ9.H7Kk8jKeATVVDR9qaVxU2Q';
 var map = new mapboxgl.Map({
     container: 'map',
@@ -21,7 +9,7 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-//CREATE MODAL
+//CREATE WEBPAGE
 $(document).ready(function(){
   $('#sidebar').hide();
   $('#about').hide();
@@ -29,7 +17,11 @@ $(document).ready(function(){
 
   $('#exploreButton').on('click', function() {
     $('#sidebar').show();
-    map.addLayer({
+  });
+
+  $('#inundBox').click(function() {
+    if($('#inundBox').prop("disabled", false)) {
+      map.addLayer({
         "id": "woodlands",
         "type": "heatmap",
         "source": {
@@ -45,14 +37,7 @@ $(document).ready(function(){
               ["linear"],
               ["get", "Inundation"],
               0, 0,
-              9, 1
-          ],
-          "heatmap-intensity": [
-              "interpolate",
-                ["linear"],
-                ["zoom"],
-                0, 1,
-                3, 3
+              3, 1
           ],
           "heatmap-color": [
               "interpolate",
@@ -68,19 +53,16 @@ $(document).ready(function(){
           'heatmap-opacity': 0.8
         }
       });
+    } else { }
   });
 
   $('#aboutButton').on('click', function() {
-    $('#about').show();
+    $('#myModal').modal('show');
     $('#map').css('top', '75px');
   });
 
   $('#resourceButton').on('click', function() {
     $('#map').css('top', 'auto');
-  });
-
-  $('#closeIcon').on('click', function() {
-    $('#about').hide();
   });
 
   $('#closeIcon').on('click', function() {

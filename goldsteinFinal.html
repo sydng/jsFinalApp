@@ -53,7 +53,7 @@
       <nav class="navbar navbar-dark">
         <i class="fas fa-tint" id=fontIcon></i>
         <div>
-          <button class="btn btn-md btn-outline-secondary" id="aboutButton" type="button">About</button>
+          <button type="button" class="btn btn-md btn-outline-secondary" id="aboutButton" data-toggle="modal" data-target="#exampleModal">About</button>
           <button class="btn btn-md btn-outline-secondary" id="resourceButton" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             Resources
           </button>
@@ -64,17 +64,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-      <button type="button" id="closeIcon" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-
-    <!-- About -->
-    <div id="about" class="about">
-      <button type="button" id="closeIcon" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <p>Reminder of main things about the application in case the user forgot or never read the modal</p>
+      <h6>Use the check boxes below to add and remove features from the map.</h6>
+      <br>
+      <div id="checkboxes">
+        <input type="checkbox" id="waterBox">  <strong>Water Features</strong></input>
+        <br>
+        <input type="checkbox" id="inundBox">  <strong>Inundation Heat Map</strong></input>
+        <br>
+        <input type="checkbox" id="devBox">  <strong>Development Heat Map</strong></input>
+      </div>
+      <button type="button" id="closeIcon" class="btn btn-outline-info">Close</button>
     </div>
 
     <!-- Map -->

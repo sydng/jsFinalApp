@@ -32,28 +32,21 @@ nav {
   opacity: 0.75;
   position: absolute;
   left: 30px;
-  width: 350px;
-  top: 200px;
-  bottom: 100px;
+  width: 250px;
+  top: 275px;
+  bottom: 300px;
   padding: 20px;
   font-size: 16px;
   background-color: white;
   z-index: 10000;
 }
 
-.about {
-  opacity: 0.75;
-  background-color: white;
-  top: 150px;
-  height: 600px;
-  width: 600px;
-  z-index: 8500;
-  margin: 0 auto;
-  position: relative;
-  padding: 20px;
-  z-index: 1200000;
-}
-
 #fontIcon {
   font-size: 50px
+}
+
+#closeIcon {
+  position: inherit;
+  right: 20px;
+  bottom: 20px;
 }
