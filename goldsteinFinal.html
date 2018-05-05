@@ -23,17 +23,16 @@
             <h3 class="modal-title">Understanding Flood Inundation:<br>A Look into Harvey</h3>
           </div>
           <div class="modal-body">
+            <h6>The data displayed in this application was created and used for a study that explored how the
+               three development phases of the Woodlands performed during Hurricane Harvey.</h6>
             <h5>How to Use</h5>
-            <p>Use the tabs and dropdown menu at the top of the page to explore features related
-               to flood inundation in the Woodlands, Texas including:</p>
+            <p>Click on the tabs at the top of the page to explore features related
+               to flood inundation in the Woodlands, Texas. </p>
                <ul>
-                 <li>Showing the hotspots of flood inundation</li>
-                 <li>Landcover in the area</li>
-                 <li>And, something else</li>
+                 <li>The <strong>About</strong> tab gives information on the app.</li>
+                 <li>Learn more about the associated project under the <strong>Resources</strong> tab.</li>
+                 <li>Click on the <strong>Explore</strong> tab to interact with the data.</li>
                </ul>
-            <p>The data used in this application was created and used for a study looking at the Woodlands
-               three development phases and how each phase performed during Hurricane Harvey. More information
-               on this project and the data can be found under the About tab on the navigational bar.</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
@@ -45,33 +44,27 @@
     <!-- Dashboard -->
     <div class="pos-f-t">
       <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
+        <div class="bg-dark p-4" id="collapse">
           <h4 class="text-white">Resources</h4>
-          <span class="text-muted">Talk about the McHarg Center and provide a link out.</span>
+          <span class="text-muted">This data was used in a study by the McHarg Center that explained flood inundation in the Woodlands, TX post Hurricane Harvey.
+            More information on the McHarg Center and the project can be found <a href="https://mcharg.upenn.edu/">here</a>.</span>
         </div>
       </div>
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar navbar-dark">
         <i class="fas fa-tint" id=fontIcon></i>
         <div>
           <button class="btn btn-md btn-outline-secondary" id="aboutButton" type="button">About</button>
           <button class="btn btn-md btn-outline-secondary" id="resourceButton" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             Resources
           </button>
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Explore
-          </button>
-            <div class="dropdown-menu">
-              <button class="dropdown-item" id="floodInund" href="#">Flood Inundation</button>
-              <button class="dropdown-item" id="landcover" href="#">Landcover</button>
-              <button class="dropdown-item" id="devPhase" href="#">Development Phases</button>
-            </div>
+          <button class="btn btn-md btn-outline-secondary" id="exploreButton" type="button">Explore</button>
         </div>
       </nav>
     </div>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-      <button type="button" id="closeIcon2" class="close" aria-label="Close">
+      <button type="button" id="closeIcon" class="close" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>

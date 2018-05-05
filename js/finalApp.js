@@ -11,30 +11,10 @@ var Stamen_TonerLite = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fast
   ext: 'png'
 }).addTo(map);*/
 
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3lkbmciLCJhIjoiY2pmY3JuM2x3M3poYjJ3bzFwZmV4ZHdwdCJ9.H7Kk8jKeATVVDR9qaVxU2Q';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: {
-        "version": 8,
-        "sources": {
-            "simple-tiles": {
-                "type": "raster",
-                "tiles": [
-                    "http://a.tile.stamen.com/toner/{z}/{x}/{y}.png",
-                    "http://b.tile.stamen.com/toner/{z}/{x}/{y}.png",
-                    "http://c.tile.stamen.com/toner/{z}/{x}/{y}.png",
-                    "http://d.tile.stamen.com/toner/{z}/{x}/{y}.png"
-                ],
-                "tileSize": 256
-            }
-        },
-        "layers": [{
-            "id": "simple-tiles",
-            "type": "raster",
-            "source": "simple-tiles",
-            "minzoom": 0,
-            "maxzoom": 19
-        }]
-    },
+    style: 'mapbox://styles/mapbox/dark-v9',
     zoom: 11,
     center: [-95.523752,30.177220]
 });
@@ -47,7 +27,7 @@ $(document).ready(function(){
   $('#about').hide();
   $('#myModal').modal('show');
 
-  $('#floodInund').on('click', function() {
+  $('#exploreButton').on('click', function() {
     $('#sidebar').show();
     map.addLayer({
         "id": "woodlands",
@@ -68,11 +48,11 @@ $(document).ready(function(){
               9, 1
           ],
           "heatmap-intensity": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            0, 1,
-            3, 3
+              "interpolate",
+                ["linear"],
+                ["zoom"],
+                0, 1,
+                3, 3
           ],
           "heatmap-color": [
               "interpolate",
@@ -103,7 +83,7 @@ $(document).ready(function(){
     $('#about').hide();
   });
 
-  $('#closeIcon2').on('click', function() {
+  $('#closeIcon').on('click', function() {
     $('#sidebar').hide();
   });
 });

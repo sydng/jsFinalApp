@@ -20,6 +20,14 @@ nav {
   position: static;
 }
 
+.pos-f-t {
+  background-color: black !important;
+}
+
+#collapse {
+  background-color: black !important;
+}
+
 .sidebar {
   opacity: 0.75;
   position: absolute;
