@@ -8,6 +8,7 @@ var map = new mapboxgl.Map({
 });
 
 map.addControl(new mapboxgl.NavigationControl());
+
 //URL FOR GEOJSON
 var promise = "https://raw.githubusercontent.com/sydng/Datasets/master/waterBodies.geojson";
 
@@ -334,9 +335,13 @@ var theCoords3 = {
 };
 
 var waterBodies;
+
 //CREATE WEBPAGE
 $(document).ready(function(){
 
+  //was trying to use to add more data to the map
+  //but couldn't get this to work with mapboxgl
+  //also tried with their L.mapbox.feature().loadURL and kept getting undefined
   $.ajax(promise).done(function(data) {
       var parsedData = JSON.parse(data);
       waterBodies = L.geoJson(parsedData, {
@@ -351,6 +356,8 @@ $(document).ready(function(){
       $('#sidebar').show();
     });
 
+    //button is glitchy
+    //works every other click because of bug in removing sources and layers
     $('#inundBox').click(function() {
       if($('#inundBox').prop("checked")) {
         map.addLayer({
@@ -386,14 +393,14 @@ $(document).ready(function(){
           }
         });
         map.addSource("woodlands");
-      } else {
+      } else if($('#inundBox').prop("checked", false)) {
         map.removeSource("woodlands");
         map.removeLayer("woodlands");
       }
     });
 
-    $('#phases').click(function() {
-      if($('#phases').prop("checked")) {
+    $('#phase1').click(function() {
+      if($('#phase1').prop("checked")) {
         map.addSource("phase1", {
           "type": "geojson",
           "data": {
@@ -412,6 +419,14 @@ $(document).ready(function(){
             'fill-opacity': 0.5
           }
         });
+      } else if($('#phase1').prop("checked", false)) {
+        map.removeLayer("phase1");
+        map.removeSource("phase1");
+      }
+    });
+
+    $('#phase2').click(function() {
+      if($('#phase2').prop("checked")) {
         map.addSource("phase2", {
           "type": "geojson",
           "data": {
@@ -430,6 +445,14 @@ $(document).ready(function(){
             'fill-opacity': 0.5
           }
         });
+      } else if($('#phase2').prop("checked", false)) {
+        map.removeLayer("phase2");
+        map.removeSource("phase2");
+      }
+    });
+
+    $('#phase3').click(function() {
+      if($('#phase3').prop("checked")) {
         map.addSource("phase3", {
           "type": "geojson",
           "data": {
@@ -448,11 +471,7 @@ $(document).ready(function(){
             'fill-opacity': 0.5
           }
         });
-      } else {
-        map.removeLayer("phase1");
-        map.removeSource("phase1");
-        map.removeLayer("phase2");
-        map.removeSource("phase2");
+      } else if($('#phase3').prop("checked", false)) {
         map.removeLayer("phase3");
         map.removeSource("phase3");
       }
@@ -462,16 +481,60 @@ $(document).ready(function(){
       $('#myModal').modal('show');
       $('#map').css('top', '75px');
       $('#sidebar').hide();
+      if($('#inundBox').prop("checked")) {
+        map.removeSource("woodlands");
+        map.removeLayer("woodlands");
+        $('#inundBox').prop("checked", false);
+      } else { }
+
+      if($('#phase1').prop("checked")) {
+        map.removeLayer("phase1");
+        map.removeSource("phase1");
+        $('#phase1').prop("checked", false);
+      } else { }
+
+      if($('#phase2').prop("checked")) {
+        map.removeLayer("phase2");
+        map.removeSource("phase2");
+        $('#phase2').prop("checked", false);
+      } else { }
+
+      if($('#phase3').prop("checked")) {
+        map.removeLayer("phase3");
+        map.removeSource("phase3");
+        $('#phase3').prop("checked", false);
+      } else { }
     });
 
     $('#resourceButton').on('click', function() {
       $('#map').css('top', 'auto');
-      $('#sidebar').hide();
     });
 
     $('#closeIcon').on('click', function() {
       $('#sidebar').hide();
-    });
+      if($('#inundBox').prop("checked")) {
+        map.removeSource("woodlands");
+        map.removeLayer("woodlands");
+        $('#inundBox').prop("checked", false);
+      } else { }
 
+      if($('#phase1').prop("checked")) {
+        map.removeLayer("phase1");
+        map.removeSource("phase1");
+        $('#phase1').prop("checked", false);
+      } else { }
+
+      if($('#phase2').prop("checked")) {
+        map.removeLayer("phase2");
+        map.removeSource("phase2");
+        $('#phase2').prop("checked", false);
+      } else { }
+
+      if($('#phase3').prop("checked")) {
+        map.removeLayer("phase3");
+        map.removeSource("phase3");
+        $('#phase3').prop("checked", false);
+      } else { }
+    });
   });
 });
